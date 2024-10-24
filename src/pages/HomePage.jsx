@@ -1,20 +1,16 @@
 import React from 'react';
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import ProductListingPage from './ProductListingPage';
-import ProductViewPage from './ProductViewPage';
+import Footer from "../components/Footer";
+import Section from "../components/Section";
 
-// Definindo o componente de layout
-const HomePage = ({ children }) => {
+const HomePage = () => {
   return (
     <div>
-      {/* Componente do cabeçalho */}
-      <Header />
-
-      {/* Conteúdo dinâmico das páginas */}
-      {children} {(HomePage, ProductListingPage, ProductViewPage)}
-
-      {/* Componente do rodapé */}
+      <Section
+        title="Produtos em Destaque" 
+        titleAlign="center" 
+      >
+        <h1>colocar as proximas coisas</h1>
+      </Section>
       <Footer />
     </div>
   );
