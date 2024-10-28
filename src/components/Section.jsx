@@ -1,3 +1,4 @@
+// src/components/Section.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -23,7 +24,7 @@ const Section = ({ title, titleAlign = 'left', link, children }) => {
           {link.text}
         </a>
       )}
-      <div>{children}</div>
+      <div style={{ display: 'flex', gap: '16px' }}>{children}</div>
     </div>
   );
 };
