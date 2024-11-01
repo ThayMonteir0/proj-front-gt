@@ -29,7 +29,7 @@ const Section = ({ title, titleAlign = 'left', link, children }) => {
 };
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.node.isRequired,
   titleAlign: PropTypes.oneOf(['left', 'center']),
   link: PropTypes.shape({
     text: PropTypes.string.isRequired,
