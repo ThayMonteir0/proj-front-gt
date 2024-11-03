@@ -8,6 +8,8 @@ import cal from '../assets/cal.png';
 import bon from '../assets/bon.png';
 import hea from '../assets/hea.png';
 import ten from '../assets/ten.png';
+import ProductListing from '../components/ProductListing';
+import featuredProducts from '../data/featuredProducts';
 
 
 const SectionContainer = styled.div`
@@ -128,6 +130,16 @@ const HomePage = () => {
           </Circle>
         ))}
       </CircleContainer>
+      <Section
+        className="flex justify-center"
+        title="Produtos em alta"
+        titleAlign="left"
+        link={{ href: "/productListing", label: "Ver todos" }}
+      />
+
+      <section>
+        <ProductListing products={featuredProducts} />
+      </section>
   </div>
   );
 };

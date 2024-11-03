@@ -8,13 +8,15 @@ import Layout from './components/Layout';
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/products" element={<ProductListingPage />} />
-          <Route path="/product/:id" element={<ProductViewPage />} />
-        </Routes>
-      </Layout>
+      <div className="bg-[#F3F4F6] min-h-screen">
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductListingPage />} />
+            <Route path="/product/:id" element={<ProductViewPage />} />
+          </Routes>
+        </Layout>
+      </div>
     </Router>
   );
 }
