@@ -10,6 +10,7 @@ import hea from '../assets/hea.png';
 import ten from '../assets/ten.png';
 import ProductListing from '../components/ProductListing';
 import featuredProducts from '../data/featuredProducts';
+import SpecialOfferSection from '../components/SpecialOfferSection';
 
 
 const SectionContainer = styled.div`
@@ -64,7 +65,7 @@ const HomePage = () => {
   };
 
   return (
-  <div>
+  <div style={{ backgroundColor: '#F0F0F0' }}>
     <Gallery />
     <Section
       title={
@@ -78,6 +79,7 @@ const HomePage = () => {
             marginLeft: '325px', // Afastar para a direita
             marginBottom: '10px', // Adiciona espaço embaixo do título
             display: 'inline-block', // Para que o margin tenha efeito corretamente
+            whiteSpace: 'nowrap',
           }}
         >
           Coleções em destaque
@@ -117,7 +119,7 @@ const HomePage = () => {
       </SectionContainer>
     </Section>
 
-    <h2 className="text-2xl text-[#474747] font-bold p-3 mb-4 text-center">Coleções em Destaque</h2>
+    <h2 className="text-2xl text-[#474747] font-bold p-3 mb-4 mt-28 text-center">Coleções em Destaque</h2>
       <CircleContainer>
         {products.map((product, index) => (
           <Circle
@@ -125,13 +127,13 @@ const HomePage = () => {
             className={selectedImage === index ? 'selected' : ''}
             onClick={() => handleCircleClick(index)}
           >
-            <img src={product.imgSrc} alt={product.name} style={{ width: '60%', height: '60%' }} />
+            <img src={product.imgSrc} alt={product.name} style={{ width: '60%', height: '60%', margin: 'px', backgroundColor:'white', borderRadius: '50%' }} />
             <div>{product.name}</div>
           </Circle>
         ))}
       </CircleContainer>
       <Section
-        className="flex justify-center"
+        className="flex justify-center mt-28"
         title="Produtos em alta"
         titleAlign="left"
         link={{ href: "/productListing", label: "Ver todos" }}
@@ -140,6 +142,7 @@ const HomePage = () => {
       <section>
         <ProductListing products={featuredProducts} />
       </section>
+      <SpecialOfferSection />
   </div>
   );
 };

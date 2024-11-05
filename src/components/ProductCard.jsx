@@ -4,12 +4,12 @@ const ProductCard = ({ product, showDiscount }) => {
   const { name, image, description, price, priceDiscount } = product;
 
   return (
-    <div className="relative p-4 border rounded-lg mb-4">
-      <img src={image} alt={name} className="w-full h-auto mb-4" />
+    <div className="relative p-4 rounded-lg mb-4">
+      <img src={image} alt={name} className="w-full h-auto mb-4 bg-white" />
       
       {/* Indicador de desconto somente se showDiscount for true */}
       {showDiscount && priceDiscount && (
-        <div className="absolute top-2 left-2 bg-yellow-light text-black font-bold text-sm rounded-lg px-2 py-1">
+        <div className="absolute top-8 left-9 bg-yellow-light text-black font-bold text-sm rounded-lg px-2 py-1">
           30%
         </div>
       )}
