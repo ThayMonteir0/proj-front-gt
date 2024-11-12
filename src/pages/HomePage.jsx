@@ -140,7 +140,7 @@ const HomePage = () => {
       />
 
       <section>
-        <ProductListing products={featuredProducts} />
+      <ProductListing products={featuredProducts.slice(0, 8)} columns="grid-cols-2 md:grid-cols-4" />
       </section>
       <SpecialOfferSection />
   </div>

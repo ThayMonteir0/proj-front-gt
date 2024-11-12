@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Section = ({ title, titleAlign = 'left', link, children, className }) => {
+  // Verifica se title é um objeto e extrai o texto dele
+  const titleText = typeof title === 'string' ? title : title?.text || '';
+  const titleAlignment = title?.align || titleAlign; // Se title for um objeto, usa seu alinhamento, senão usa o valor padrão
+
   return (
     <div className={`my-8 ${className}`}>
       {/* Container para o título e link */}
       <div className="grid grid-cols-7 gap-4 mb-2">
-        <h2 className={`text-2xl font-semibold text-gray-800 text-${titleAlign} col-start-1 row-start-1`}>
-          {title}
+        <h2 className={`text-2xl font-semibold text-gray-800 text-${titleAlignment} col-start-1 row-start-1`}>
+          {titleText}
         </h2>
         {link && (
           <Link to={link.href} className="text-pink-600 hover:underline col-start-7 row-start-1 text-right">
@@ -25,7 +29,7 @@ const Section = ({ title, titleAlign = 'left', link, children, className }) => {
 };
 
 Section.propTypes = {
-  title: PropTypes.node.isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]), // Permite string ou JSX
   titleAlign: PropTypes.oneOf(['left', 'center']),
   link: PropTypes.shape({
     label: PropTypes.string.isRequired,

@@ -1,11 +1,11 @@
 import React from 'react';
 import ProductCard from './ProductCard';
 
-const ProductListing = ({ products }) => {
+const ProductListing = ({ products, columns = "grid-cols-2 md:grid-cols-3" }) => {
     return (
         <div className="flex justify-center">
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-4 mx-auto">
-                {products.slice(0, 8).map((product, index) => (
+            <div className={`grid gap-4 mx-auto ${columns}`}>
+                {products.map((product, index) => (
                     <ProductCard key={index} product={product} showDiscount={index < 2} />
                 ))}
             </div>
