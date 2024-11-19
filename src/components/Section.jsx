@@ -21,6 +21,13 @@ const Section = ({ title, titleAlign = 'left', link, children, className }) => {
       <div className="flex flex-col gap-4">
         {children}
       </div>
+      <div className="section">
+        <div className="section-header" style={{ textAlign: titleAlign }}>
+          <h2>{title}</h2>
+          <a href={link.href}>{link.text}</a>
+        </div>
+        {children}
+      </div>
     </div>
   );
 };
