@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'yellow-light': '#E7FF86', // Adiciona a nova cor
+        'yellow-light': '#E7FF86',
       },
     },
   },

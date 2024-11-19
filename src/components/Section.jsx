@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Section = ({ title, titleAlign = 'left', link, children, className }) => {
-  // Verifica se title é um objeto e extrai o texto dele
   const titleText = typeof title === 'string' ? title : title?.text || '';
-  const titleAlignment = title?.align || titleAlign; // Se title for um objeto, usa seu alinhamento, senão usa o valor padrão
+  const titleAlignment = title?.align || titleAlign;
 
   return (
     <div className={`my-8 ${className}`}>
-      {/* Container para o título e link */}
       <div className="grid grid-cols-7 gap-4 mb-2">
         <h2 className={`text-2xl font-semibold text-gray-800 text-${titleAlignment} col-start-1 row-start-1`}>
           {titleText}
@@ -20,7 +18,6 @@ const Section = ({ title, titleAlign = 'left', link, children, className }) => {
           </Link>
         )}
       </div>
-      {/* Container para os cards, mantendo flex e com o espaço adequado */}
       <div className="flex flex-col gap-4">
         {children}
       </div>

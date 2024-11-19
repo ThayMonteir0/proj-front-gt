@@ -15,11 +15,11 @@ import SpecialOfferSection from '../components/SpecialOfferSection';
 
 const SectionContainer = styled.div`
   display: flex;
-  justify-content: center; /* Centraliza os itens na horizontal */
-  gap: 10px; /* Espaçamento entre os cards */
-  flex-wrap: wrap; /* Permite que os cards quebrem linha se necessário */
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 1300px; /* Garante que o contêiner ocupe toda a largura disponível */
+  max-width: 1300px;
   padding: 0 20px;
   margin: 0 auto;
 `;
@@ -27,30 +27,29 @@ const SectionContainer = styled.div`
 const CircleContainer = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px; /* Espaçamento entre as imagens */
-  flex-wrap: wrap; /* Permite que as imagens se movam para a próxima linha se necessário */
-  margin-top: 20px; /* Espaçamento superior */
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
 `;
 
 const Circle = styled.div`
   display: flex;
-  flex-direction: column; /* Alinha a imagem e o nome verticalmente */
-  align-items: center; /* Centraliza os itens horizontalmente */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
   
   img {
-    width: 100px; /* Largura da imagem */
-    height: 100px; /* Altura da imagem */
+    width: 100px;
+    height: 100px;
   }
   
-  /* Estilo para a seleção (opcional, se quiser indicar a seleção) */
   &.selected {
-    outline: 2px solid #000; /* Contorno opcional para indicar que a imagem está selecionada */
+    outline: 2px solid #000;
   }
 `;
 
 const HomePage = () => {
-  const [selectedImage, setSelectedImage] = useState(null); // Estado para a imagem selecionada
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const products = [
     { name: 'Camisetas', imgSrc: cam },
@@ -61,7 +60,7 @@ const HomePage = () => {
   ];
 
   const handleCircleClick = (index) => {
-    setSelectedImage(index); // Atualiza a imagem selecionada
+    setSelectedImage(index);
   };
 
   return (
@@ -70,15 +69,15 @@ const HomePage = () => {
     <Section
       title={
         <Link
-          to="/colecoes" // URL para onde o link deve redirecionar
+          to="/colecoes"
           style={{
-            color: '#474747', // Cor do texto
+            color: '#474747',
             fontWeight: 'bold',
-            textDecoration: 'none', // Remove o sublinhado do link
+            textDecoration: 'none',
             marginTop:'5px',
-            marginLeft: '325px', // Afastar para a direita
-            marginBottom: '10px', // Adiciona espaço embaixo do título
-            display: 'inline-block', // Para que o margin tenha efeito corretamente
+            marginLeft: '325px',
+            marginBottom: '10px',
+            display: 'inline-block',
             whiteSpace: 'nowrap',
           }}
         >
@@ -89,7 +88,7 @@ const HomePage = () => {
     >
       <SectionContainer>
         <div style={styles.card}>
-          <div style={styles.textContainer}> {/* Novo contêiner para o título e botão */}
+          <div style={styles.textContainer}>
             <div style={styles.discount}>30% OFF</div>
             <h3 style={styles.cardTitle}>Novo drop Supreme</h3>
             <button style={styles.buyButton}>Comprar</button>
@@ -100,7 +99,7 @@ const HomePage = () => {
 
        
         <div style={styles.card}>
-          <div style={styles.textContainer}> {/* Novo contêiner para o título e botão */}
+          <div style={styles.textContainer}>
             <div style={styles.discount}>30% OFF</div>
             <h3 style={styles.cardTitle}>Coleção Adidas</h3>
             <button style={styles.buyButton}>Comprar</button>
@@ -109,7 +108,7 @@ const HomePage = () => {
         </div>
 
         <div style={styles.card}>
-          <div style={styles.textContainer}> {/* Novo contêiner para o título e botão */}
+          <div style={styles.textContainer}>
             <div style={styles.discount}>30% OFF</div>
             <h3 style={styles.cardTitle}>Novo Beat Bass</h3>
             <button style={styles.buyButton}>Comprar</button>
@@ -169,11 +168,11 @@ const styles = {
     padding: '10px 8px',
     borderRadius: '50px',
     fontWeight: 'bold',
-    width: '96px',      // Define a largura do badge
-    height: '32px',     // Define a altura do badge
-    display: 'flex',    // Para alinhar o texto no centro
-    alignItems: 'center', // Alinha o texto verticalmente
-    justifyContent: 'center', // Alinha o texto horizontalmente
+    width: '96px',
+    height: '32px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   cardTitle: {
     fontWeight: 'bold',
@@ -198,15 +197,15 @@ const styles = {
     borderRadius: '4px',
     objectFit: 'cover',
     objectPosition: 'top',
-    margin: 0,           // Remove margens
-    padding: 0,          // Remove qualquer padding
-    display: 'block',    // Garante que a imagem se expanda no container
+    margin: 0,
+    padding: 0,
+    display: 'block',
   },
   textContainer: {
     display: 'flex',
-    flexDirection: 'column', // Coloca os itens em coluna
-    justifyContent: 'flex-start', // Alinha os itens ao topo
-    marginLeft: '16px', // Para afastar do desconto
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    marginLeft: '16px',
   },
 
 

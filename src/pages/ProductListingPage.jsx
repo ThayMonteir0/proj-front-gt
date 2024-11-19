@@ -67,14 +67,12 @@ function ProductListingPage() {
 
   return (
     <div className="bg-[#F5F5F5] flex flex-col">
-      {/* Primeira seção com "Resultado para Tênis" e "Ordenar por" */}
       <section className="p-4">
         <div className="flex items-center justify-between m-3">
           <h2 className="text-lg text-dark-gray-2 font-semibold">
             Resultado para <span className="font-bold">"Tênis"</span> - {filteredProducts.length} produtos
           </h2>
 
-          {/* Seletor de ordenar, no lado direito */}
           <div className="flex items-center space-x-2">
             <span className="text-dark-gray-2 text-lg">Ordenar por:</span>
             <div className="relative">
@@ -82,7 +80,7 @@ function ProductListingPage() {
                 className="h-[40px] text-dark-gray-2 bg-white border border-light-gray-2 rounded px-4 pr-8 appearance-none focus:border-light-gray focus:outline-none"
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value)}
-                style={{ borderWidth: "2px" }} // Define a borda mais fina
+                style={{ borderWidth: "2px" }}
               >
                 <option value="low-to-high">Menor preço</option>
                 <option value="high-to-low">Maior preço</option>
@@ -90,9 +88,9 @@ function ProductListingPage() {
               <span
                 className="absolute right-3 pointer-events-none text-dark-gray-2"
                 style={{
-                  top: "50%", // Centraliza verticalmente a seta
-                  transform: "translateY(-50%)", // Ajusta a posição para centralização
-                  fontSize: "0.8rem", // Tamanho da seta para suavizar o visual
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  fontSize: "0.8rem",
                 }}
               >
                 ▼
@@ -103,14 +101,12 @@ function ProductListingPage() {
         </div>
       </section>
 
-      {/* Segunda seção com "Filtrar por" e a listagem de produtos */}
       <section className="flex">
         <aside className="w-[308px] p-4 bg-white m-4 self-start">
           <div className="mb-4">
             <h2 className="text-dark-gray-2 font-semibold text-lg">Filtrar por</h2>
             <hr className="my-2 border-light-gray-2" />
 
-            {/* Filtrar Marca */}
             <div className="mb-4">
               <h3 className="text-dark-gray-2 text-sm font-semibold">Marca</h3>
               <div className="mt-2">
@@ -128,7 +124,6 @@ function ProductListingPage() {
               </div>
             </div>
 
-            {/* Filtrar Categoria */}
             <div className="mb-4">
               <h3 className="text-dark-gray-2 text-sm font-semibold">Categoria</h3>
               <div className="mt-2">
@@ -146,7 +141,6 @@ function ProductListingPage() {
               </div>
             </div>
 
-            {/* Filtrar Gênero */}
             <div className="mb-4">
               <h3 className="text-dark-gray-2 text-sm font-semibold">Gênero</h3>
               <div className="mt-2">
@@ -164,7 +158,6 @@ function ProductListingPage() {
               </div>
             </div>
 
-            {/* Filtrar Estado (Novo ou Usado com bolinhas) */}
             <div className="mb-4">
               <h3 className="text-dark-gray-2 text-sm font-semibold">Estado</h3>
               <div className="mt-2">
@@ -185,7 +178,6 @@ function ProductListingPage() {
           </div>
         </aside>
 
-        {/* A listagem de produtos */}
         <div className="w-full flex-1 mt-[-40px]">
           <Section children={<ProductListing products={filteredProducts} />} />
         </div>

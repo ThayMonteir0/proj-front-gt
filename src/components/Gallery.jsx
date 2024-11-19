@@ -34,7 +34,7 @@ const Gallery = () => {
             <div className="flex justify-center mt-2 space-x-2">
                 {images.map((image) => (
                      <span
-                     key={image.id} // Usando id como chave única
+                     key={image.id}
                      className={`w-3 h-3 rounded-full cursor-pointer ${selectedImage.id === image.id ? 'bg-[#eb1177]' : 'bg-gray-500'}`}
                      onClick={() => setSelectedImage(image)}
                  />

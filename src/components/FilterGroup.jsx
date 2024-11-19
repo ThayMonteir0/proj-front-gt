@@ -4,13 +4,11 @@ function FilterGroup({ title, inputType, options, selectedFilters, onFilterChang
   const handleChange = (value) => {
     let updatedFilters = [...selectedFilters];
     if (updatedFilters.includes(value)) {
-      // Remove o filtro se ele já estiver selecionado
       updatedFilters = updatedFilters.filter(filter => filter !== value);
     } else {
-      // Adiciona o filtro se ele não estiver selecionado
       updatedFilters.push(value);
     }
-    onFilterChange(updatedFilters); // Atualiza os filtros no estado da página
+    onFilterChange(updatedFilters);
   };
 
   return (
@@ -24,7 +22,7 @@ function FilterGroup({ title, inputType, options, selectedFilters, onFilterChang
               value={option.value || option.text}
               className="w-5 h-5 text-primary mr-2"
               checked={selectedFilters.includes(option.value || option.text)}
-              onChange={() => handleChange(option.value || option.text)} // Chama a função para atualizar o estado
+              onChange={() => handleChange(option.value || option.text)}
             />
             <span className="text-dark-gray-2">{option.text}</span>
           </label>
