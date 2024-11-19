@@ -26,7 +26,7 @@ const Section = ({ title, titleAlign = 'left', link, children, className }) => {
 };
 
 Section.propTypes = {
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]), // Permite string ou JSX
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   titleAlign: PropTypes.oneOf(['left', 'center']),
   link: PropTypes.shape({
     label: PropTypes.string.isRequired,
