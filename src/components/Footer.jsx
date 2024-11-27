@@ -19,13 +19,13 @@ const Footer = () => {
           </p>
           
           <div className="flex space-x-4 mt-8 pl-8">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
               <img src={FacebookIcon} alt="Facebook" className="w-6 h-6" />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
               <img src={InstagramIcon} alt="Instagram" className="w-6 h-6" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <img src={TwitterIcon} alt="Twitter" className="w-6 h-6" />
             </a>
           </div>

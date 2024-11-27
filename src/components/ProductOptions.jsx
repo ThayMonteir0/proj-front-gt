@@ -1,36 +1,32 @@
-// src/components/ProductOptions.js
+// src/components/ProductOptions/index.jsx
 import React, { useState } from 'react';
 
-const ProductOptions = ({ options, radius, shape, type }) => {
-  const [selected, setSelected] = useState(null);
+const ProductOptions = ({ options, shape, radius, type }) => {
+    const [selected, setSelected] = useState(null);
 
-  const handleSelect = (option) => {
-    setSelected(option);
-  };
-
-  return (
-    <div className="product-options">
-      {options.map((option, index) => {
-        const isSelected = selected === option;
-        return (
-          <div
-            key={index}
-            onClick={() => handleSelect(option)}
-            className={`option ${shape} ${type} ${isSelected ? 'selected' : ''}`}
-            style={{
-              borderRadius: shape === 'square' ? radius : '50%',
-              backgroundColor: type === 'color' ? option : 'transparent',
-              border: isSelected ? '2px solid #C92071' : '1px solid #B5B6F2',
-              width: shape === 'square' ? '46px' : '31px',
-              height: shape === 'square' ? '46px' : '31px',
-            }}
-          >
-            {type === 'text' && <span style={{ fontSize: '24px', color: '#1F1F1F' }}>{option}</span>}
-          </div>
-        );
-      })}
-    </div>
-  );
+    return (
+        <div className="flex gap-4 mt-2">
+            {options.map((option, index) => (
+                <div
+                    key={index}
+                    onClick={() => setSelected(index)}
+                    style={{
+                        borderRadius: shape === 'circle' ? '50%' : radius,
+                        width: shape === 'circle' ? '31px' : 'auto',
+                        height: shape === 'circle' ? '31px' : '46px',
+                        border: selected === index ? '2px solid #C92071' : '1px solid #CCCCCC',
+                    }}
+                    className="flex items-center justify-center cursor-pointer"
+                >
+                    {type === 'text' ? (
+                        <span style={{ fontSize: '24px', color: '#666666' }}>{option}</span>
+                    ) : (
+                        <div style={{ backgroundColor: option, width: '100%', height: '100%' }} />
+                    )}
+                </div>
+            ))}
+        </div>
+    );
 };
 
 export default ProductOptions;

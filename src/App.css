@@ -1,0 +1,18 @@
+/* App.css */
+
+/* Estilo das setas padrão */
+.image-gallery-icon {
+    color: #eb1177; /* Cor rosa padrão */
+    transition: color 0.3s;
+  }
+  
+  .image-gallery-icon:active {
+    color: #c92071; /* Cor rosa mais escura ao clicar */
+  }
+  
+  /* Borda rosa para miniaturas selecionadas */
+  .image-gallery-thumbnail.active {
+    border: 2px solid #eb1177; /* Cor rosa para a borda */
+    box-shadow: 0 0 5px rgba(235, 17, 119, 0.7); /* Sombras rosa */
+  }
+  

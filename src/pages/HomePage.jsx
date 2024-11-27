@@ -12,7 +12,6 @@ import ProductListing from '../components/ProductListing';
 import featuredProducts from '../data/featuredProducts';
 import SpecialOfferSection from '../components/SpecialOfferSection';
 
-
 const SectionContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -37,15 +36,38 @@ const Circle = styled.div`
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  
+
   img {
     width: 100px;
     height: 100px;
+    border-radius: 50%;
   }
-  
+
   &.selected {
     outline: 2px solid #000;
   }
+`;
+
+const CollectionCard = ({ imgSrc, title, discount }) => (
+  <div style={styles.card}>
+    <div style={styles.textContainer}>
+      <div style={styles.discount}>{discount}</div>
+      <h3 style={styles.cardTitle}>{title}</h3>
+      <button style={styles.buyButton}>Comprar</button>
+    </div>
+    <img src={imgSrc} alt={title} style={styles.cardImage} />
+  </div>
+);
+
+const TitleLink = styled(Link)`
+  color: #474747;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 5px;
+  margin-left: 325px;
+  margin-bottom: 10px;
+  display: inline-block;
+  white-space: nowrap;
 `;
 
 const HomePage = () => {
@@ -64,85 +86,36 @@ const HomePage = () => {
   };
 
   return (
-  <div style={{ backgroundColor: '#F0F0F0' }}>
-    <Gallery />
-    <Section
-      title={
-        <Link
-          to="/colecoes"
-          style={{
-            color: '#474747',
-            fontWeight: 'bold',
-            textDecoration: 'none',
-            marginTop:'5px',
-            marginLeft: '325px',
-            marginBottom: '10px',
-            display: 'inline-block',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Coleções em destaque
-        </Link>
-      }
-      titleAlign="left"
-    >
-      <SectionContainer>
-        <div style={styles.card}>
-          <div style={styles.textContainer}>
-            <div style={styles.discount}>30% OFF</div>
-            <h3 style={styles.cardTitle}>Novo drop Supreme</h3>
-            <button style={styles.buyButton}>Comprar</button>
-          </div>
-          <img src="/collection1.png" alt="Novo drop Supreme" style={styles.cardImage} />
-        </div>
+    <div style={{ backgroundColor: '#F0F0F0' }}>
+      <Gallery />
+      <Section title={<TitleLink to="/colecoes">Coleções em destaque</TitleLink>} titleAlign="left">
+        <SectionContainer>
+          <CollectionCard imgSrc="/collection1.png" title="Novo drop Supreme" discount="30% OFF" />
+          <CollectionCard imgSrc="/collection2.png" title="Coleção Adidas" discount="30% OFF" />
+          <CollectionCard imgSrc="/collection3.png" title="Novo Beat Bass" discount="30% OFF" />
+        </SectionContainer>
+      </Section>
 
-
-       
-        <div style={styles.card}>
-          <div style={styles.textContainer}>
-            <div style={styles.discount}>30% OFF</div>
-            <h3 style={styles.cardTitle}>Coleção Adidas</h3>
-            <button style={styles.buyButton}>Comprar</button>
-          </div>
-          <img src="/collection2.png" alt="Coleção Adidas" style={styles.cardImage} />
-        </div>
-
-        <div style={styles.card}>
-          <div style={styles.textContainer}>
-            <div style={styles.discount}>30% OFF</div>
-            <h3 style={styles.cardTitle}>Novo Beat Bass</h3>
-            <button style={styles.buyButton}>Comprar</button>
-          </div>
-          <img src="/collection3.png" alt="Novo Beat Bass" style={styles.cardImage} />
-        </div>
-      </SectionContainer>
-    </Section>
-
-    <h2 className="text-2xl text-[#474747] font-bold p-3 mb-4 mt-28 text-center">Coleções em Destaque</h2>
+      <h2 className="text-2xl text-[#474747] font-bold p-3 mb-4 mt-28 text-center">Coleções em Destaque</h2>
       <CircleContainer>
         {products.map((product, index) => (
           <Circle
-            key={index}
+            key={product.name}
             className={selectedImage === index ? 'selected' : ''}
             onClick={() => handleCircleClick(index)}
           >
-            <img src={product.imgSrc} alt={product.name} style={{ width: '60%', height: '60%', margin: 'px', backgroundColor:'white', borderRadius: '50%' }} />
+            <img src={product.imgSrc} alt={product.name} />
             <div>{product.name}</div>
           </Circle>
         ))}
       </CircleContainer>
-      <Section
-        className="flex justify-center mt-28"
-        title="Produtos em alta"
-        titleAlign="left"
-        link={{ href: "/productListing", label: "Ver todos" }}
-      />
 
+      <Section className="flex justify-center mt-28" title="Produtos em alta" titleAlign="left" link={{ href: "/products", label: "Ver todos" }} />
       <section>
-      <ProductListing products={featuredProducts.slice(0, 8)} columns="grid-cols-2 md:grid-cols-4" />
+        <ProductListing products={featuredProducts.slice(0, 8)} columns="grid-cols-2 md:grid-cols-4" />
       </section>
       <SpecialOfferSection />
-  </div>
+    </div>
   );
 };
 
@@ -207,8 +180,6 @@ const styles = {
     justifyContent: 'flex-start',
     marginLeft: '16px',
   },
-
-
 };
 
 export default HomePage;

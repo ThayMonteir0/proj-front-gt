@@ -179,7 +179,14 @@ function ProductListingPage() {
         </aside>
 
         <div className="w-full flex-1 mt-[-40px]">
-          <Section children={<ProductListing products={filteredProducts} />} />
+          <Section>
+            <ProductListing
+              products={filteredProducts.map(product => ({
+                ...product,
+                link: `/product/${product.id}`,
+              }))}
+            />
+          </Section>
         </div>
       </section>
     </div>
